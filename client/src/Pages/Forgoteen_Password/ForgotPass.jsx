@@ -5,7 +5,6 @@ import "/src/Pages/Forgoteen_Password/style.css";
 export default function ForgotPass() {
 	return (
 		<>
-
 			<div className="container">
 				<h1>Forgotten Password</h1>
 				<form>
