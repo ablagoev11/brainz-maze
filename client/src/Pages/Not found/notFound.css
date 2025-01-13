@@ -1,0 +1,26 @@
+.not-found-container {
+	font-size: 54px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 10px;
+	margin-left: 40%;
+	margin-top: 20%;
+}
+
+.btn {
+	background-color: black;
+	padding: 30px 80px;
+	font-size: 32px;
+	margin-left: 3%;
+	color: aliceblue;
+	font-family: monospace;
+	font-size: large;
+	cursor: pointer;
+}
+
+.btn:hover {
+	transition: 800ms;
+	background-color: rgb(184, 176, 176);
+	color: black;
+}

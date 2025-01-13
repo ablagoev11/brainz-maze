@@ -1,10 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../authentification.css";
-import "/src/Pages/Log in/style.css";
+import "../Log in/style.css";
 export default function Log_in() {
 	return (
 		<>
-		
 			<div className="container">
 				<h1>Log in</h1>
 				<form>
@@ -40,12 +40,12 @@ export default function Log_in() {
 					<p>
 						No account?
 						<br />
-						<a href="/Sign_up">Create here!</a>
+						<Link to={"/signup"}>Create here!</Link>
 					</p>
 
 					<p class="forgotten_pass_par">
-						Forgot your password? <br />{" "}
-						<a href="/Forgot_password">Create another!</a>
+						Forgot your password? <br />
+						<Link to={"/forgottenpassword"}>Create another!</Link>
 					</p>
 				</div>
 			</div>

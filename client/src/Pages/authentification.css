@@ -33,21 +33,21 @@ label {
 	border-bottom: 1px solid gray;
 }
 .container {
-	background-color: hwb(288 27% 24% / 0.7);
+	background-color: hwb(288 41% 20% / 0.795);
 	margin: 10% auto;
-	width: 20vw;
-	height: 50vh;
+	width: 10vw;
+	min-width: 400px;
+	height: 400px;
 	text-align: center;
 	border-radius: 60px 1px;
 }
 
 .container p {
-	font-size: 18px;
-	box-shadow: 2px 3px 100px black;
+	font-size: 20px;
 }
 
 .email-container {
-	margin-bottom: -30px;
+	margin-bottom: -20px;
 	padding: 10px;
 }
 .pass-container {
@@ -57,7 +57,7 @@ label {
 form {
 	display: flex;
 	flex-direction: column;
-	gap: 30px;
+	gap: 20px;
 }
 
 .input {
@@ -67,20 +67,6 @@ form {
 }
 .input:placeholder-shown {
 	box-shadow: 3px 10px 10px rgb(28, 13, 126);
-}
-.submit {
-	margin-top: 30px;
-
-	padding: 20px 48px;
-	border: none;
-	border-radius: 4px;
-	box-shadow: 2px 2px 20px black;
-	cursor: pointer;
-	background-color: hsl(271, 86%, 75%);
-}
-
-.submit:hover {
-	background-color: hsl(271, 86%, 50%);
 }
 
 .problematic-account {
@@ -107,7 +93,20 @@ form {
 	border-radius: 260px 10px;
 	padding: 20px;
 }
-
 .problematic-account:hover {
-	opacity: 0.8;
+	opacity: 0.9;
+}
+.submit {
+	margin-top: 30px;
+	margin-left: 0%;
+	padding: 20px 48px;
+	border: none;
+	border-radius: 4px;
+	box-shadow: 2px 2px 20px black;
+	cursor: pointer;
+	background-color: hsl(271, 86%, 75%);
+}
+
+.submit:hover {
+	background-color: hsl(271, 86%, 50%);
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../authentification.css";
 import "/src/Pages/Forgoteen_Password/style.css";
 
@@ -48,10 +49,10 @@ export default function ForgotPass() {
 				<div className="problematic-account">
 					<p>
 						No account?
-						<a href="/Sign_up">
+						<Link to={"/signup"}>
 							<br />
 							Create here!
-						</a>
+						</Link>
 					</p>
 				</div>
 			</div>

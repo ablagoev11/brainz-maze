@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../authentification.css";
 import "/src/Pages/Sign up/style.css";
 export default function Sign_up() {
@@ -66,15 +67,9 @@ export default function Sign_up() {
 				</form>
 
 				<div className="problematic-account">
-					<p>
-						No account?
-						<br />
-						<a href="/Sign_up">Create here!</a>
-					</p>
-
 					<p class="forgotten_pass_par">
 						Forgot your password? <br />{" "}
-						<a href="/Forgot_password">Create another!</a>
+						<Link to={"/forgottenpassword"}>Create another!</Link>
 					</p>
 				</div>
 			</div>

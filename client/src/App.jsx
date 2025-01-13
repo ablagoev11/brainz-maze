@@ -1,11 +1,10 @@
-// import Card from "./Cards/Card";
-// import Subjects from "./Cards/Subjects";
+import "/src/App.css";
 import About from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
 function App() {
 	return (
 		<>
-			<About />
+			
 		</>
 	);
 }
