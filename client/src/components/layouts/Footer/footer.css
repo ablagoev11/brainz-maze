@@ -1,0 +1,27 @@
+footer {
+	text-align: start;
+	background-color: hsl(289, 67%, 8%);
+	margin-bottom: -100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
+}
+
+.footer_img {
+	height: 120px;
+	width: 140px;
+	z-index: 1;
+}
+.info {
+	display: flex;
+	gap: 1rem;
+}
+.info li {
+	list-style-type: none;
+	font-family: monospace;
+	font-size: 20px;
+}
+.info li a {
+	text-decoration: none;
+}
