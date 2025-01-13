@@ -23,13 +23,13 @@ public class Quiz {
     private String question;
 
     @Column(nullable = false)
-    private String correctAnswers; //JSON array of correct answers, convert to string in service
+    private String correctAnswers;
 
     @Column(nullable = false)
     private boolean isMultipleChoice;
 
     @Column
-    private String choices; // JSON array of choices, convert to string in service
+    private String choices;
 
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)

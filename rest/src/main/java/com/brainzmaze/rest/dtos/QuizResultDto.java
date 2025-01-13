@@ -1,6 +1,5 @@
 package com.brainzmaze.rest.dtos;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,4 +15,6 @@ public class QuizResultDto {
     private Long id;
     private int score;
     private LocalDateTime attemptedOn;
+    private Long quizId;
+    private Long userId;
 }

@@ -13,5 +13,7 @@ public class FlashcardDto {
     private Long id;
     private String question;
     private String answer;
+    private Long courseId;
+    private Long resourceId;
 
 }

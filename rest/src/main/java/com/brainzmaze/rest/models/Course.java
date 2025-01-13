@@ -28,19 +28,15 @@ public class Course {
 
     @ManyToMany
     @JoinTable(
-            name = "student_course",
+            name = "user_course",
             joinColumns = @JoinColumn(name="course_id"),
-            inverseJoinColumns = @JoinColumn(name = "student_id")
+            inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private Set<Student> students = new HashSet<>();
+    private Set<User> users = new HashSet<>();
 
-    @ManyToMany
-    @JoinTable(
-            name = "teacher_course",
-            joinColumns = @JoinColumn(name="course_id"),
-            inverseJoinColumns = @JoinColumn(name = "teacher_id")
-    )
-    private Set<Teacher> teachers = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "school_id", nullable = false)
+    private School school;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Resource> resources = new HashSet<>();

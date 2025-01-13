@@ -27,10 +27,9 @@ public class QuizResult {
 
     @ManyToOne
     @JoinColumn(name = "quiz_id", nullable = false)
-    private Quiz quiz; //
+    private Quiz quiz;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private Student user;
-
+    private User user;
 }
