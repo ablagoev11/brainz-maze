@@ -2,21 +2,22 @@ package com.brainzmaze.rest.mappers;
 
 import com.brainzmaze.rest.dtos.SchoolDto;
 import com.brainzmaze.rest.models.School;
-import com.brainzmaze.rest.models.User;
 import com.brainzmaze.rest.repositories.CourseRepository;
 import com.brainzmaze.rest.repositories.UserRepository;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
-@AllArgsConstructor
 @Component
 public class SchoolMapper {
 
     private final CourseRepository courseRepository;
     private final UserRepository userRepository;
+
+    public SchoolMapper(CourseRepository courseRepository, UserRepository userRepository) {
+        this.courseRepository = courseRepository;
+        this.userRepository = userRepository;
+    }
 
     public SchoolDto toDto(School school) {
         SchoolDto dto = new SchoolDto();
@@ -24,6 +25,7 @@ public class SchoolMapper {
         dto.setName(school.getName());
         dto.setDomain(school.getDomain());
         dto.setDescription(school.getDescription());
+        dto.setMoodleToken(school.getMoodleToken());
 
         List<Long> courseIds = school.getCourses()
                 .stream()

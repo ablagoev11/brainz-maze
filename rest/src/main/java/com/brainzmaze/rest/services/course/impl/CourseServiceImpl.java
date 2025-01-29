@@ -5,12 +5,10 @@ import com.brainzmaze.rest.mappers.CourseMapper;
 import com.brainzmaze.rest.models.Course;
 import com.brainzmaze.rest.repositories.CourseRepository;
 import com.brainzmaze.rest.services.course.CourseService;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@AllArgsConstructor
 @Service
 public class CourseServiceImpl implements CourseService {
 
@@ -29,6 +27,12 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Course not found with id: " + id));
     }
+
+    public CourseServiceImpl(CourseRepository courseRepository, CourseMapper courseMapper) {
+        this.courseRepository = courseRepository;
+        this.courseMapper = courseMapper;
+    }
+
     @Override
     public List<Course> getCoursesByIds(List<Long> ids) {
         return courseRepository.findAllById(ids);

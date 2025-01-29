@@ -6,16 +6,18 @@ import com.brainzmaze.rest.models.QuizResult;
 import com.brainzmaze.rest.models.User;
 import com.brainzmaze.rest.repositories.QuizRepository;
 import com.brainzmaze.rest.repositories.UserRepository;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-@AllArgsConstructor
 @Component
 public class QuizResultMapper {
 
     private final QuizRepository quizRepository;
     private final UserRepository userRepository;
 
+
+    public QuizResultMapper(QuizRepository quizRepository, UserRepository userRepository) {
+        this.quizRepository = quizRepository;
+        this.userRepository = userRepository;
+    }
 
     public QuizResultDto toDto(QuizResult quizResult) {
         QuizResultDto dto = new QuizResultDto();

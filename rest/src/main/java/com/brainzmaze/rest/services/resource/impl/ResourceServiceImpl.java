@@ -5,11 +5,9 @@ import com.brainzmaze.rest.mappers.ResourceMapper;
 import com.brainzmaze.rest.models.Resource;
 import com.brainzmaze.rest.repositories.ResourceRepository;
 import com.brainzmaze.rest.services.resource.ResourceService;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
 public class ResourceServiceImpl implements ResourceService {
     private final ResourceRepository resourceRepository;
     private final ResourceMapper resourceMapper;
@@ -25,6 +23,11 @@ public class ResourceServiceImpl implements ResourceService {
     public Resource getResourceById(Long id) {
         return resourceRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Resource not found with id: " + id));
+    }
+
+    public ResourceServiceImpl(ResourceRepository resourceRepository, ResourceMapper resourceMapper) {
+        this.resourceRepository = resourceRepository;
+        this.resourceMapper = resourceMapper;
     }
 
     @Override

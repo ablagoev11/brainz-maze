@@ -2,16 +2,14 @@ package com.brainzmaze.rest.services.quiz.impl;
 
 import com.brainzmaze.rest.dtos.QuizDto;
 import com.brainzmaze.rest.mappers.QuizMapper;
-import com.brainzmaze.rest.models.Flashcard;
 import com.brainzmaze.rest.models.Quiz;
 import com.brainzmaze.rest.repositories.QuizRepository;
 import com.brainzmaze.rest.services.quiz.QuizService;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@AllArgsConstructor
+
 @Service
 public class QuizServiceImpl implements QuizService {
 
@@ -23,6 +21,11 @@ public class QuizServiceImpl implements QuizService {
         Quiz quiz = quizMapper.toModel(quizDto);
         Quiz savedQuiz = quizRepository.save(quiz);
         return quizMapper.toDto(savedQuiz);
+    }
+
+    public QuizServiceImpl(QuizRepository quizRepository, QuizMapper quizMapper) {
+        this.quizRepository = quizRepository;
+        this.quizMapper = quizMapper;
     }
 
     @Override

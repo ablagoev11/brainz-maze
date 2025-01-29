@@ -6,19 +6,22 @@ import com.brainzmaze.rest.models.User;
 import com.brainzmaze.rest.repositories.CourseRepository;
 import com.brainzmaze.rest.repositories.QuizResultRepository;
 import com.brainzmaze.rest.repositories.SchoolRepository;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
-@AllArgsConstructor
 @Component
 public class UserMapper {
 
     private final CourseRepository courseRepository;
     private final QuizResultRepository quizResultRepository;
     private final SchoolRepository schoolRepository;
+
+    public UserMapper(CourseRepository courseRepository, QuizResultRepository quizResultRepository, SchoolRepository schoolRepository) {
+        this.courseRepository = courseRepository;
+        this.quizResultRepository = quizResultRepository;
+        this.schoolRepository = schoolRepository;
+    }
 
     public UserDto toDto(User user) {
         UserDto dto = new UserDto();

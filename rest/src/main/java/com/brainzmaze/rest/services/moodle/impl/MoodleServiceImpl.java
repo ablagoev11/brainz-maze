@@ -1,11 +1,14 @@
 package com.brainzmaze.rest.services.moodle.impl;
 
 import com.brainzmaze.rest.repositories.UserRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.web.client.RestTemplate;
 
-@AllArgsConstructor
 public class MoodleServiceImpl {
+    public MoodleServiceImpl(UserRepository userRepository, RestTemplate restTemplate) {
+        this.userRepository = userRepository;
+        this.restTemplate = restTemplate;
+    }
+
     private final UserRepository userRepository;
     private final RestTemplate restTemplate;
 

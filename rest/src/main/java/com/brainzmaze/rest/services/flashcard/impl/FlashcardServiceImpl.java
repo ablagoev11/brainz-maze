@@ -5,12 +5,10 @@ import com.brainzmaze.rest.mappers.FlashcardMapper;
 import com.brainzmaze.rest.models.Flashcard;
 import com.brainzmaze.rest.repositories.FlashcardRepository;
 import com.brainzmaze.rest.services.flashcard.FlashcardService;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@AllArgsConstructor
 @Service
 public class FlashcardServiceImpl implements FlashcardService {
 
@@ -34,6 +32,11 @@ public class FlashcardServiceImpl implements FlashcardService {
         return flashcardRepository.findAllById(ids);
     }
 
+
+    public FlashcardServiceImpl(FlashcardRepository flashcardRepository, FlashcardMapper flashcardMapper) {
+        this.flashcardRepository = flashcardRepository;
+        this.flashcardMapper = flashcardMapper;
+    }
 
     @Override
     public FlashcardDto getFlashcardDto(Long id) {

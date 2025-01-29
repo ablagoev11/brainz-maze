@@ -5,12 +5,10 @@ import com.brainzmaze.rest.mappers.QuizResultMapper;
 import com.brainzmaze.rest.models.QuizResult;
 import com.brainzmaze.rest.repositories.QuizResultRepository;
 import com.brainzmaze.rest.services.quizResults.QuizResultsService;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@AllArgsConstructor
 @Service
 public class QuizResultsServiceImpl implements QuizResultsService {
 
@@ -22,6 +20,11 @@ public class QuizResultsServiceImpl implements QuizResultsService {
         QuizResult quizResults = quizResultsMapper.toModel(quizResultsDto);
         QuizResult savedQuizResults = quizResultsRepository.save(quizResults);
         return quizResultsMapper.toDto(savedQuizResults);
+    }
+
+    public QuizResultsServiceImpl(QuizResultRepository quizResultsRepository, QuizResultMapper quizResultsMapper) {
+        this.quizResultsRepository = quizResultsRepository;
+        this.quizResultsMapper = quizResultsMapper;
     }
 
     @Override

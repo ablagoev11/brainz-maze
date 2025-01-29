@@ -4,7 +4,6 @@ import com.brainzmaze.rest.models.School;
 import com.brainzmaze.rest.models.User;
 import com.brainzmaze.rest.repositories.SchoolRepository;
 import com.brainzmaze.rest.repositories.UserRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -12,22 +11,25 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor
 public class UserServiceImpl {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final SchoolRepository schoolRepository;
 
-    private String generateUserId(Long moodleId, Long schoolId) {
-        return moodleId + "_" + schoolId;
-    }
+
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public User createUserFromMoodle(Long moodleId, String firstName, String lastName, String email, Long schoolId) {
-        String userId = generateUserId(moodleId, schoolId);
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, SchoolRepository schoolRepository) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.schoolRepository = schoolRepository;
+    }
+
+    public User createUserFromMoodle(Long userId, String firstName, String lastName, String email, Long schoolId) {
+
 
         Optional<User> existingUser = userRepository.findById(userId);
 

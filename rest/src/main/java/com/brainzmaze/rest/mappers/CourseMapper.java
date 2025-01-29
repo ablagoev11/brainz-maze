@@ -3,14 +3,13 @@ package com.brainzmaze.rest.mappers;
 import com.brainzmaze.rest.dtos.CourseDto;
 import com.brainzmaze.rest.models.*;
 import com.brainzmaze.rest.repositories.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
-@AllArgsConstructor
 @Component
 public class CourseMapper {
     private final UserRepository userRepository;
@@ -18,6 +17,14 @@ public class CourseMapper {
     private final ResourceRepository resourceRepository;
     private final FlashcardRepository flashcardRepository;
     private final QuizRepository quizRepository;
+
+    public CourseMapper(UserRepository userRepository, SchoolRepository schoolRepository, ResourceRepository resourceRepository, FlashcardRepository flashcardRepository, QuizRepository quizRepository) {
+        this.userRepository = userRepository;
+        this.schoolRepository = schoolRepository;
+        this.resourceRepository = resourceRepository;
+        this.flashcardRepository = flashcardRepository;
+        this.quizRepository = quizRepository;
+    }
 
     public CourseDto toDto(Course course) {
         CourseDto dto = new CourseDto();
