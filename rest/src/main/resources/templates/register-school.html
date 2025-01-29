@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register a School</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="form-container">
+    <h1>Register a School</h1>
+    <form id="schoolForm">
+        <div>
+            <label for="name">School Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter the school's name" required />
+        </div>
+        <div>
+            <label for="domain">Domain:</label>
+            <input type="text" id="domain" name="domain" placeholder="e.g., school.com" required />
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" placeholder="Provide a brief description" required></textarea>
+        </div>
+        <div>
+            <label for="moodleToken">Moodle Token:</label>
+            <input type="text" id="moodleToken" name="moodleToken" placeholder="Enter Moodle token (optional)" />
+        </div>
+        <button type="button" onclick="submitForm()">Register</button>
+        <p id="error-message" class="error-message"></p>
+    </form>
+</div>
+
+<script>
+    async function submitForm() {
+        const formData = {
+            name: document.getElementById('name').value,
+            domain: document.getElementById('domain').value,
+            description: document.getElementById('description').value,
+            moodleToken: document.getElementById('moodleToken').value
+        };
+
+        try {
+            const response = await fetch('/api/schools', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.status === 201) {
+                alert('School registered successfully!');
+                document.getElementById('schoolForm').reset();
+            } else {
+                const errorData = await response.json();
+                document.getElementById('error-message').textContent = `Error: ${errorData.message || 'Something went wrong!'}`;
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('error-message').textContent = 'Failed to register the school.';
+        }
+    }
+</script>
+
+</body>
+</html>
