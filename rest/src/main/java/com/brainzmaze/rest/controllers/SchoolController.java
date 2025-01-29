@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/schools")
-@CrossOrigin(origins = "*")
 public class SchoolController {
 
 
@@ -30,6 +29,5 @@ public class SchoolController {
         return schoolService.getSchoolByDomain(domain)
                 .orElseThrow(() -> new RuntimeException("School not found with domain: " + domain));
     }
-
 
 }
